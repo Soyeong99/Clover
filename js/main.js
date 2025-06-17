@@ -1,6 +1,6 @@
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
-  
+
   // <!-- fixed_cta / cta 영역 스크롤 감지 -->
   const fixedCTA = document.querySelector('.fixed_cta');
   const ctaArea = document.querySelector('#formArea');
@@ -24,5 +24,9 @@
       }
     });
   }
+
+  $('.btn_submit').click(function(){
+    $(this).find('.modal').stop().fadeIn();
+  });
 
 });
