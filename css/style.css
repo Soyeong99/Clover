@@ -31,7 +31,14 @@ section {
   padding: 50px 0;
   margin: 60px 0;
 }
-
+@media (max-width:540px) {
+  body{
+    line-height: 1.4;
+  }
+  section{
+    
+  }
+}
 /* common_txt */
 p {
   font-weight: 800;
@@ -136,21 +143,27 @@ div.img {
   .sub_tit {
     font-size: 3.5rem;
   }
+    em {
+    font-size:  2.8rem;
+  }
 }
 
-@media (max-width:400px) {
+@media (max-width:440px) {
   br.mo {
     display: block;
   }
 }
 
-@media (max-width:320px) {
+@media (max-width:380px) {
   .tit {
     font-size: 3rem;
   }
 
   .sub_tit {
     font-size: 2.5rem;
+  }
+  em {
+    font-size:  1.8rem; 
   }
 }
 
@@ -350,7 +363,7 @@ footer .sns a:hover {
 
 @media (max-width: 400px) {
   .fixed_cta {
-    padding: 6px 5%;
+    padding: 12px 5%;
   }
 
   .fixed_cta .go_btn {
