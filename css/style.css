@@ -35,9 +35,6 @@ section {
   body{
     line-height: 1.4;
   }
-  section{
-    
-  }
 }
 /* common_txt */
 p {
@@ -148,13 +145,11 @@ div.img {
   }
 }
 
-@media (max-width:440px) {
+@media (max-width:480px) {
   br.mo {
     display: block;
   }
-}
-
-@media (max-width:380px) {
+  
   .tit {
     font-size: 3rem;
   }
