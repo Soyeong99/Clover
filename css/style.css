@@ -139,9 +139,11 @@ br.mo {
 }
 
 div.img {
-  background: #eee;
-  aspect-ratio: 48/27;
+  width: 100%;
   margin: 10px 0;
+}
+div.img > img {
+  width: 100%;
 }
 
 @media (max-width:890px) {
