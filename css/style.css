@@ -28,15 +28,16 @@ body {
 }
 
 section {
-  padding: 50px 0;
+  padding: 100px 0;
   margin: 60px 0;
 }
 
 .inner {
   max-width: 90%;
+  margin: 0 auto;
 }
 
-a.go_form{
+a.go_form {
   background: var(--txt-red);
   border: 1px solid var(--txt-red);
   color: #fff;
@@ -45,10 +46,23 @@ a.go_form{
   border-radius: 8px;
   transition: all 0.5s;
 }
+
 a.go_form:hover {
   background: #fff;
   color: var(--txt-red);
 }
+
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#header,
+.fixed_cta {
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
 
 @media (max-width:540px) {
   body {
@@ -112,14 +126,12 @@ br.mo {
 
 /* img */
 .imoji {
-  width: 520px;
+  max-width: 30%;
   margin: 30px auto;
-  aspect-ratio: 1/1;
 }
 
 .imoji>img {
-  height: 100%;
-  object-fit: cover;
+  width: 100%;
 }
 
 .img_set {
@@ -132,32 +144,32 @@ div.img {
   margin: 10px 0;
 }
 
-@media (max-width:798px) {
+@media (max-width:890px) {
+  .imoji {
+    max-width: 60%;
+  }
+
   .tit {
-    font-size: 7rem;
+    font-size: 5rem;
   }
 
   .sub_tit {
-    font-size: 6rem;
+    font-size: 4rem;
+  }
+
+  .imoji>img {
+    width: 80%;
+    height: auto;
   }
 }
 
-@media (max-width:600px) {
+@media (max-width:798px) {
   .tit {
     font-size: 6rem;
   }
 
   .sub_tit {
     font-size: 5rem;
-  }
-
-  .imoji {
-    width: auto;
-  }
-
-  .imoji>img {
-    width: 80%;
-    height: auto;
   }
 }
 
@@ -199,7 +211,7 @@ div.img {
 
 /* header */
 header {
-  padding: 5px 0;
+  padding: 5px 2%;
   position: fixed;
   top: 0;
   left: 0;
@@ -212,7 +224,6 @@ header {
 
 header .inner {
   width: 100%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -226,8 +237,10 @@ header h1 {
 
 header a {
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: 2rem;
   padding: 6px 22px;
+  max-width: 200px;
+  width: 100%;
 }
 
 @media screen and (max-width:980px) {
@@ -241,6 +254,52 @@ header a {
   header h1 {
     font-size: 2rem;
     padding: 8px 0;
+  }
+}
+
+@media screen and (max-width:480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header a.go_form {
+    width: auto;
+    font-size: 1.8rem;
+    padding: 5px 20px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header a.go_form {
+    width: auto;
+    font-size: 1.6rem;
+    padding: 5px 20px 4px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header a.go_form {
+    width: auto;
+    font-size: 1.6rem;
+    padding: 5px 20px 4px;
+  }
+}
+
+@media screen and (max-width:340px) {
+  header h1 {
+    margin: 0 auto;
+  }
+
+  header a.go_form {
+    display: none;
   }
 }
 
@@ -270,24 +329,26 @@ footer .f_left div {
 footer .f_logo {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-footer .f_btm {
-  font-weight: 400;
-  font-size: 1.6rem;
-}
-
-footer .f_info {
+footer .f_info>p {
   display: flex;
-  gap: 3px;
-  flex-wrap: wrap;
+  gap: 5px;
 }
 
-footer .f_info span {
-  display: block;
-  color: rgb(255, 255, 255, 0.8);
+footer .f_info span.info_cartagory {
+  font-weight: 500;
 }
+
+footer .f_btm,
+footer .f_info>p>span {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: rgb(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
 
 footer .sns {
   display: flex;
@@ -309,7 +370,7 @@ footer .sns a:hover {
 
 @media(max-width:580px) {
   footer .inner {
-    padding: 30px 5% 50px;
+    padding: 30px 2% 50px;
     font-size: 1.6rem;
   }
 
@@ -323,6 +384,35 @@ footer .sns a:hover {
 
   footer .sns {
     margin-top: 30px;
+  }
+}
+
+@media(max-width:360px) {
+  footer .f_logo {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  footer .f_info>p>span {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width:340px) {
+  footer .inner {
+    padding: 30px 0 40px;
+  }
+
+  footer .f_info>p>span {
+    font-size: 1.3rem;
+  }
+
+  footer .sns {
+    margin-top: 15px;
+  }
+
+  footer .sns a {
+    font-size: 1.4rem;
   }
 }
 
@@ -542,36 +632,48 @@ button[type="submit"]:hover {
 
 /* modal */
 .modal {
-  background: transparent;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal dl {
-  display: none;
-  position: fixed;
-  top: 400px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content;
-  text-align: center;
-  padding: 20px 50px;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 20px 40px;
   background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: auto;
 }
 
 .modal dl dt {
   font-size: 2rem;
   font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .modal dl dd {
   font-size: 1.6rem;
-  font-weight: 500;
   color: #888;
+  font-weight: 500;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
 }

@@ -1,32 +1,63 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-
-  // <!-- fixed_cta / cta 영역 스크롤 감지 -->
   const fixedCTA = document.querySelector('.fixed_cta');
+  const header = document.querySelector('#header');
   const ctaArea = document.querySelector('#formArea');
-  let isHidden = false;
 
-  if (fixedCTA && ctaArea) {
+  let isCTAHidden = false;
+  let isHeaderHidden = false;
+
+  if ((fixedCTA || header) && ctaArea) {
     window.addEventListener('scroll', () => {
       const ctaRect = ctaArea.getBoundingClientRect();
-      const offset = 100; // 사라지는 지점을 조금 아래로
+      const offset = 100;
 
-      if (ctaRect.top < window.innerHeight - offset) {
-        if (!isHidden) {
-          fixedCTA.classList.add('fade-out');
-          isHidden = true;
+      // fixedCTA 처리
+      if (fixedCTA) {
+        if (ctaRect.top < window.innerHeight - offset) {
+          if (!isCTAHidden) {
+            fixedCTA.classList.add('fade-out');
+            isCTAHidden = true;
+          }
+        } else {
+          if (isCTAHidden) {
+            fixedCTA.classList.remove('fade-out');
+            isCTAHidden = false;
+          }
         }
-      } else {
-        if (isHidden) {
-          fixedCTA.classList.remove('fade-out');
-          isHidden = false;
+      }
+
+      // header 처리
+      if (header) {
+        if (ctaRect.top < window.innerHeight - offset) {
+          if (!isHeaderHidden) {
+            header.classList.add('fade-out');
+            isHeaderHidden = true;
+          }
+        } else {
+          if (isHeaderHidden) {
+            header.classList.remove('fade-out');
+            isHeaderHidden = false;
+          }
         }
       }
     });
   }
 
-  $('.btn_submit').click(function(){
-    $(this).find('.modal').stop().fadeIn();
+  // 버튼 클릭 시 모달 표시
+const submitBtn = document.querySelector('.btn_submit');
+const modal = document.querySelector('.modal');
+
+if (submitBtn && modal) {
+  submitBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    modal.classList.add('active');
+
+    setTimeout(() => {
+      modal.classList.remove('active');
+    }, 2000);
   });
+}
+
 
 });
